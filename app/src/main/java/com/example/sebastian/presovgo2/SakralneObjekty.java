@@ -17,7 +17,7 @@ public class SakralneObjekty extends AsyncTask<Void,Void,Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            URL url = new URL("https://egov.presov.sk/GeoDataKatalog/fontany_pramene.json");
+            URL url = new URL("https://egov.presov.sk/GeoDataKatalog/sakralne_objekty.json");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
