@@ -40,64 +40,24 @@ public class FountainFragment extends Fragment {
     private void initImageBitmaps(){
 
 
-        mImageUrls.add("https://c1.staticflickr.com/1/64/225912483_a9aec208a2_o.jpg");
-        mNames.add("A");
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
+       
+        mImageUrls.add("https://mapio.net/images-p/51421431.jpg");
+        mNames.add("Fontána Nám. mládeže");
 
-        mImageUrls.add("https://c1.staticflickr.com/1/64/225912483_a9aec208a2_o.jpg");
-        mNames.add("B");
+        mImageUrls.add("https://s3.amazonaws.com/gs-geo-images/50f2f050-b291-45e8-986e-58d6e2fe9f87.jpg");
+        mNames.add("Fontána Družba");
 
-        mImageUrls.add("https://c1.staticflickr.com/5/4857/45837642755_02afc2893c_o.jpg");
-        mNames.add("C");
+        mImageUrls.add("https://m.smedata.sk/api-media/media/image/sme/7/15/1588737/1588737_1200x.jpg?rev=1");
+        mNames.add("Fontána Park Angelinum");
 
-        mImageUrls.add("https://c1.staticflickr.com/5/4011/4519650902_15442d9dae_z.jpg");
-        mNames.add("D");
+        mImageUrls.add("https://www.odkazprestarostu.sk/image/w1280/public/alerts/31583/images/579b90c0280f1.jpg");
+        mNames.add("Fontána NS OPÁL");
 
-        mImageUrls.add("https://c1.staticflickr.com/5/4011/4519650902_15442d9dae_z.jpg");
-        mNames.add("E");
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        mImageUrls.add("https://c1.staticflickr.com/6/5705/30259890684_53652482e3.jpg");
-        mNames.add("F");
+        mImageUrls.add("https://mapio.net/images-p/105665770.jpg");
+        mNames.add("Fontána Šváby");
 
-        mImageUrls.add("https://c1.staticflickr.com/7829/46513501805_28bd57556e_k.jpg");
-        mNames.add("G");
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
-        mImageUrls.add("https://c1.staticflickr.com/7866/47413255301_4cebf0c942_k.jpg");
-        mNames.add("H");
 
-        mImageUrls.add("https://c1.staticflickr.com/3/2545/3907058181_ef370524cb_b.jpg");
-        mNames.add("I");
 
-        mImageUrls.add("https://c1.staticflickr.com/1/661/21255980099_215fe587e9_k.jpg");
-        mNames.add("J");
-
-        mImageUrls.add("https://c1.staticflickr.com/1/186/436759602_df41e06a92_z.jpg?zz=1");
-        mNames.add("K");
 
         /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
         /*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*//*KOMAR JE DEBIL*/
