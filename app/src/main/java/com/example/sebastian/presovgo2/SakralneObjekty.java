@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class SakralneObjekty extends AsyncTask<Void,Void,Void> {
 
-    String data;
+    private String data;
 
     @Override
     protected Void doInBackground(Void... voids) {

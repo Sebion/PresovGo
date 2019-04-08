@@ -53,7 +53,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         LatLng presov= new LatLng(48.997631, 21.2401873);
         mMap.addMarker(new MarkerOptions().position(presov).title("Marker in Presov"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(presov));
-        mMap.setMinZoomPreference(15);
+        mMap.setMinZoomPreference(12);
 
     }
 }

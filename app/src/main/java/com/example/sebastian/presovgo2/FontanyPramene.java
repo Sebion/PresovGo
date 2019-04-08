@@ -12,7 +12,7 @@ import java.net.URL;
 
 
 public class FontanyPramene extends AsyncTask<Void,Void,Void> {
-    String data;
+    String data="";
 
     @Override
     protected Void doInBackground(Void... voids) {
@@ -35,6 +35,8 @@ public class FontanyPramene extends AsyncTask<Void,Void,Void> {
         }
 
         return null;
+
+
     }
 
     @Override
