@@ -39,7 +39,17 @@ public class FountainFragment extends Fragment {
 
     private void initImageBitmaps(){
 
+        mImageUrls.add("https://m.smedata.sk/api-media/media/image/sme/4/32/3229924/3229924_1200x.jpeg?rev=3");
+        mNames.add("Fontána Neptún");
 
+        mImageUrls.add("http://www.obecbardonovo.sk/portals_pictures/i_005149/i_5149417.jpg");
+        mNames.add("Fontána Centrál Sídl. II.");
+
+        mImageUrls.add("https://www.odkazprestarostu.sk/image/w1280/public/alerts/55350/images/5b6227eb00fab.jpg");
+        mNames.add("Fontána Divízia, Nám. legionárov");
+
+        mImageUrls.add("https://mapio.net/images-p/107427244.jpg");
+        mNames.add("Fontána Nám. mieru");
        
         mImageUrls.add("https://mapio.net/images-p/51421431.jpg");
         mNames.add("Fontána Nám. mládeže");
