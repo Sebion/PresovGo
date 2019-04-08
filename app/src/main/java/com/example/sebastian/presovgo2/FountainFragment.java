@@ -22,6 +22,8 @@ public class FountainFragment extends Fragment {
     private ArrayList <String> mImageUrls = new ArrayList<>();
 
 
+
+
     public FountainFragment() {
         // Required empty public constructor
     }
@@ -36,6 +38,7 @@ public class FountainFragment extends Fragment {
     }
 
     private void initImageBitmaps(){
+
 
         mImageUrls.add("https://c1.staticflickr.com/1/64/225912483_a9aec208a2_o.jpg");
         mNames.add("A");

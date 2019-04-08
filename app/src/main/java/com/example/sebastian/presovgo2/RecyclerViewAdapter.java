@@ -24,12 +24,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private static final String TAG = "RecyclerViewAdapter";
     private ArrayList<String> mImageNames = new ArrayList<>();
     private ArrayList <String> mImages = new ArrayList<>();
+    private ArrayList<Double>mLatitude=new ArrayList<>();
+    private ArrayList<Double>mLongtitude=new ArrayList<>();
     private Context mContext;
 
     public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
+
     }
 
     @NonNull
