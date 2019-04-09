@@ -27,6 +27,15 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
         android:textSize="17sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0999988 09769876"
+        android:id="@+id/image_coordinates"
+        android:layout_toRightOf="@id/image"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/image_name"
+        android:layout_marginTop="25dp"/>
 
 
 

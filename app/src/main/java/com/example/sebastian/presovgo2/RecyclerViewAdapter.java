@@ -24,14 +24,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private static final String TAG = "RecyclerViewAdapter";
     private ArrayList<String> mImageNames = new ArrayList<>();
     private ArrayList <String> mImages = new ArrayList<>();
-    private ArrayList<Double>mLatitude=new ArrayList<>();
-    private ArrayList<Double>mLongtitude=new ArrayList<>();
+   private ArrayList<String> mCoordinates =new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String>mCoordinates) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
+        this.mCoordinates=mCoordinates;
 
     }
 
@@ -53,12 +53,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .into(holder.image) ;
 
         holder.imageName.setText(mImageNames.get(position));
-
+        holder.coordinates.setText(mCoordinates.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: "+ mImageNames.get(position));
-                Toast.makeText(mContext,mImageNames.get(position),Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,mCoordinates.get(position),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -74,12 +74,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         CircleImageView image;
         TextView imageName;
         RelativeLayout parentLayout;
+        TextView coordinates;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
             imageName = itemView.findViewById(R.id.image_name);
             parentLayout = itemView.findViewById(R.id.parent_layout);
+            coordinates=itemView.findViewById(R.id.image_coordinates);
         }
     }
 }

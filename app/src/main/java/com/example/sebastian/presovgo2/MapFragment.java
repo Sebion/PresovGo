@@ -1,6 +1,9 @@
 package com.example.sebastian.presovgo2;
 
 
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -15,10 +18,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+
+import static android.content.Context.LOCATION_SERVICE;
 
 
 /**
@@ -37,6 +43,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_map, container, false);
+
+
+
+
         mapFragment=(SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         if(mapFragment==null){
             FragmentManager fm = getFragmentManager();
@@ -55,7 +65,25 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         mMap = googleMap;
         LatLng presov= new LatLng(48.997631, 21.2401873);
         ArrayList <LatLng> markers=new ArrayList<>();
+        ArrayList <LatLng> markersBlue=new ArrayList<>();
         // Add a marker in Sydney and move the camera
+
+        markersBlue.add(new LatLng(48.9972801,21.2406273));
+        markersBlue.add(new LatLng(48.998796,21.2244021));
+        markersBlue.add(new LatLng(48.992649,21.245111));
+        markersBlue.add(new LatLng(49.0016961,21.2396836));
+        markersBlue.add(new LatLng(48.994849,21.230344));
+        markersBlue.add(new LatLng(49.006467, 21.223953));
+        markersBlue.add(new LatLng(48.993027,21.272304));
+        markersBlue.add(new LatLng(48.9867838,21.2656024));
+        markersBlue.add(new LatLng(48.9740729,21.2624717));
+
+
+
+        markersBlue.forEach((n) ->  mMap.addMarker(new MarkerOptions().position(n).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))));
+
+
+
 
         markers.add(new LatLng(48.998058, 21.239890));
         markers.add(new LatLng(48.998492, 21.239862));
@@ -83,4 +111,5 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         mMap.setMinZoomPreference(11);
 
     }
+
 }
