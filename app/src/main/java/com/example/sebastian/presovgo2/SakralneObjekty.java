@@ -4,10 +4,13 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -138,6 +141,23 @@ public class SakralneObjekty  {
 
 
         return coor;
+    }
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+
+    public ArrayList<LatLng> getLatLng(){
+        ArrayList<LatLng> latLngs=new ArrayList<>();
+        String [] pomoc;
+
+        for (int i = 0; i < getCoordinates().size(); i++) {
+            pomoc=getCoordinates().get(i).split(",");
+            latLngs.add(new LatLng(Double.parseDouble(pomoc[0]), Double.parseDouble(pomoc[1])));
+        }
+
+
+        return latLngs;
     }
 //    @Override
 //    protected Void doInBackground(Void... voids) {
