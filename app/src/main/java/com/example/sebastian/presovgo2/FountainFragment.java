@@ -41,12 +41,16 @@ public class FountainFragment extends Fragment {
 
 
 
+
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void initRecyclerView(){
         RecyclerView recyclerView = view.findViewById(R.id.recyclerv_view_fountain);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(view.getContext(),fontanyPramene.getNames(),fontanyPramene.getImgUrl(),fontanyPramene.getCoordinates());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+
     }
 
 }

@@ -1,6 +1,8 @@
 package com.example.sebastian.presovgo2;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -59,6 +61,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
                 Log.d(TAG, "onClick: "+ mImageNames.get(position));
                 Toast.makeText(mContext,mCoordinates.get(position),Toast.LENGTH_SHORT).show();
+
             }
         });
 

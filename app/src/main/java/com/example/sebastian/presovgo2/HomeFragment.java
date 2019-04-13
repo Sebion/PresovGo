@@ -32,7 +32,7 @@ import static android.content.Context.LOCATION_SERVICE;
  */
 public class HomeFragment extends Fragment {
 
-    private Button b;
+
     private TextView t;
     private LocationManager locationManager;
     private LocationListener listener;
@@ -48,7 +48,6 @@ public class HomeFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_home, container, false);
 
         t = (TextView)view.findViewById(R.id.textView2);
-        b = (Button)view.findViewById(R.id.buttonGetLocation);
         return view;
 
 
@@ -75,7 +74,10 @@ public class HomeFragment extends Fragment {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                t.append("\n " + location.getLongitude() + " " + location.getLatitude());
+                t.setText("Distance to Presov : "+"\n"+distance(location.getLatitude(),location.getLongitude(),48.997631,21.2401873)+" Km.");
+
+
+
             }
 
             @Override
@@ -100,6 +102,27 @@ public class HomeFragment extends Fragment {
 
     }
 
+    private double distance(double lat1, double lon1, double lat2, double lon2) {
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1))
+                * Math.sin(deg2rad(lat2))
+                + Math.cos(deg2rad(lat1))
+                * Math.cos(deg2rad(lat2))
+                * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515/ 0.62137;
+        return (Math.round(dist*100.0)/100.0);
+    }
+
+    private double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    private double rad2deg(double rad) {
+        return (rad * 180.0 / Math.PI);
+    }
+
 
 
         void configure_button(){
@@ -112,13 +135,9 @@ public class HomeFragment extends Fragment {
                 return;
             }
             // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //noinspection MissingPermission
+
                     locationManager.requestLocationUpdates("gps", 5000, 0, listener);
-                }
-            });
+
         }
 
 
