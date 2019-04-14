@@ -15,9 +15,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,22 +35,33 @@ import static android.content.Context.LOCATION_SERVICE;
  */
 public class HomeFragment extends Fragment {
 
-
+    IMainActivity iMainActivity;
     private TextView t;
     private LocationManager locationManager;
     private LocationListener listener;
     public HomeFragment() {
         // Required empty public constructor
     }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        iMainActivity = (IMainActivity) getActivity();
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
-
         t = (TextView)view.findViewById(R.id.textView2);
+
         return view;
 
 
@@ -72,9 +86,14 @@ public class HomeFragment extends Fragment {
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
         listener = new LocationListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onLocationChanged(Location location) {
                 t.setText("Distance to Presov : "+"\n"+distance(location.getLatitude(),location.getLongitude(),48.997631,21.2401873)+" Km.");
+                iMainActivity.setMyCoordinations(location.getLatitude()+", "+location.getLongitude());
+                Log.i("interface",location.getLatitude()+"toto je latitude moja");
+
+
 
 
 

@@ -1,8 +1,10 @@
 package com.example.sebastian.presovgo2;
 
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,12 +21,28 @@ import java.util.ArrayList;
  */
 public class ChurchesFragment extends Fragment {
     SakralneObjekty sakralneObjekty =new SakralneObjekty();
-
+    private String myCoordinates;
     private View view;
     private ArrayList<Pamiatka> pamiatky = new ArrayList<>();
-
+    private IMainActivity iMainActivity;
     public ChurchesFragment() {
         // Required empty public constructor
+
+    }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle bundle=this.getArguments();
+        if(bundle!=null){
+            myCoordinates=bundle.getString("coor");
+
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        iMainActivity = (IMainActivity) getActivity();
 
     }
 
@@ -39,6 +57,29 @@ public class ChurchesFragment extends Fragment {
 
 
     }
+    private double[] getMyCoordinatesDouble(){
+
+        String[] myCoordinatesString = myCoordinates.split(",");
+        double [] myCoordinatesDouble=new double[2];
+        myCoordinatesDouble[0]=Double.parseDouble(myCoordinatesString[0]);
+        myCoordinatesDouble[1]=Double.parseDouble(myCoordinatesString[1]);
+        return myCoordinatesDouble;
+
+
+    }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public ArrayList<String> getDistancesToChurches() {
+        ArrayList<String> distances =new ArrayList<>();
+        double[]pomocMyCoor=getMyCoordinatesDouble();
+        String [] pomocChurchesCoor;
+        for (int i = 0; i < sakralneObjekty.getLatLng().size(); i++) {
+            pomocChurchesCoor=sakralneObjekty.getCoordinates().get(i).split(",");
+            distances.add("Distance to this church: "+sakralneObjekty.distance(pomocMyCoor[0],pomocMyCoor[1],Double.parseDouble(pomocChurchesCoor[0]),Double.parseDouble(pomocChurchesCoor[1])));
+        }
+
+
+        return distances;
+    }
 
 
 
@@ -47,7 +88,7 @@ public class ChurchesFragment extends Fragment {
     private void initRecyclerView() {
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerv_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(view.getContext(), sakralneObjekty.getNames(), sakralneObjekty.getImgUrl(), sakralneObjekty.getCoordinates());
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(view.getContext(), sakralneObjekty.getNames(), sakralneObjekty.getImgUrl(), getDistancesToChurches());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
     }
