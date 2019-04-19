@@ -23,7 +23,7 @@ public class ChurchesFragment extends Fragment {
     SakralneObjekty sakralneObjekty =new SakralneObjekty();
     private String myCoordinates;
     private View view;
-    private ArrayList<Pamiatka> pamiatky = new ArrayList<>();
+
     private IMainActivity iMainActivity;
     public ChurchesFragment() {
         // Required empty public constructor
@@ -70,15 +70,30 @@ public class ChurchesFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public ArrayList<String> getDistancesToChurches() {
         ArrayList<String> distances =new ArrayList<>();
+        ArrayList<String> loading=new ArrayList<>();
+        if(!myCoordinates.equals("null")){
         double[]pomocMyCoor=getMyCoordinatesDouble();
         String [] pomocChurchesCoor;
         for (int i = 0; i < sakralneObjekty.getLatLng().size(); i++) {
             pomocChurchesCoor=sakralneObjekty.getCoordinates().get(i).split(",");
-            distances.add("Distance to this church: "+sakralneObjekty.distance(pomocMyCoor[0],pomocMyCoor[1],Double.parseDouble(pomocChurchesCoor[0]),Double.parseDouble(pomocChurchesCoor[1])));
+            distances.add("Distance to this church: "+sakralneObjekty.distance(pomocMyCoor[0],pomocMyCoor[1],Double.parseDouble(pomocChurchesCoor[0]),Double.parseDouble(pomocChurchesCoor[1]))+" km");
+        }
+            return distances;
+        }
+        else {
+            for (int i = 0; i < sakralneObjekty.getCoordinates().size(); i++) {
+                loading.add("Loading...");
+            }
+            return loading;
+
+
+
         }
 
 
-        return distances;
+
+
+
     }
 
 
@@ -88,7 +103,7 @@ public class ChurchesFragment extends Fragment {
     private void initRecyclerView() {
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerv_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(view.getContext(), sakralneObjekty.getNames(), sakralneObjekty.getImgUrl(), getDistancesToChurches());
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(view.getContext(), sakralneObjekty.getNames(), sakralneObjekty.getImgUrl(), getDistancesToChurches(),sakralneObjekty.getCoordinates());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
     }

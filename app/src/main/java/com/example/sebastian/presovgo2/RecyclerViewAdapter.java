@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -27,13 +28,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mImageNames = new ArrayList<>();
     private ArrayList <String> mImages = new ArrayList<>();
    private ArrayList<String> mCoordinates =new ArrayList<>();
+   private ArrayList<String>mLatLong=new ArrayList<>();
+
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String>mCoordinates) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String>mCoordinates,ArrayList<String>mLatLong) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
         this.mCoordinates=mCoordinates;
+        this.mLatLong=mLatLong;
 
     }
 
@@ -60,7 +64,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: "+ mImageNames.get(position));
-                Toast.makeText(mContext,mCoordinates.get(position),Toast.LENGTH_SHORT).show();
+
+                           String[]pomoc= mLatLong.get(position).split(",");
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:<+"+pomoc[0]+"+>,<"+pomoc[1]+">?q=<+"+pomoc[0]+"+>,<"+pomoc[1]+">(Label+Name)"));
+                mContext.startActivity(intent);
 
             }
         });

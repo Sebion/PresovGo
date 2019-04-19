@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity
     FountainFragment fountainFragment = new FountainFragment();
     ChurchesFragment churchesFragment = new ChurchesFragment();
     MapFragment mapFragment = new MapFragment();
-    String incomingMessage;
+    String incomingMessage="null";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +95,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            if(!incomingMessage.equals("")) {
+            if(incomingMessage.equals("null")) {
+                Bundle bundle =new Bundle();
+                bundle.putString("coor","null");
+                fountainFragment.setArguments(bundle);
+            }
+            else{
                 Bundle bundle = new Bundle();
                 bundle.putString("coor", incomingMessage);
                 fountainFragment.setArguments(bundle);
@@ -107,7 +112,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            if(!incomingMessage.equals("")) {
+            if(incomingMessage.equals("null")) {
+                Bundle bundle =new Bundle();
+                bundle.putString("coor","null");
+                churchesFragment.setArguments(bundle);
+            }
+            else{
                 Bundle bundle = new Bundle();
                 bundle.putString("coor", incomingMessage);
                 churchesFragment.setArguments(bundle);

@@ -78,21 +78,31 @@ public class FountainFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public ArrayList<String> getDistancesToFountains() {
         ArrayList<String> distances =new ArrayList<>();
-        double[]pomocMyCoor=getMyCoordinatesDouble();
-        String [] pomocFountainsCoor;
-        for (int i = 0; i < fontanyPramene.getLatLng().size(); i++) {
-            pomocFountainsCoor=fontanyPramene.getCoordinates().get(i).split(",");
-            distances.add("Distance to this fountain: "+fontanyPramene.distance(pomocMyCoor[0],pomocMyCoor[1],Double.parseDouble(pomocFountainsCoor[0]),Double.parseDouble(pomocFountainsCoor[1])));
+        ArrayList<String> loading=new ArrayList<>();
+        if(!myCoordinates.equals("null")){
+            double[]pomocMyCoor=getMyCoordinatesDouble();
+            String [] pomocFountainsCoor;
+            for (int i = 0; i < fontanyPramene.getLatLng().size(); i++) {
+                pomocFountainsCoor=fontanyPramene.getCoordinates().get(i).split(",");
+                distances.add("Distance to this fountain: "+fontanyPramene.distance(pomocMyCoor[0],pomocMyCoor[1],Double.parseDouble(pomocFountainsCoor[0]),Double.parseDouble(pomocFountainsCoor[1]))+" km");
+            }
+            return distances;
         }
+        else {
+            for (int i = 0; i < fontanyPramene.getCoordinates().size(); i++) {
+                loading.add("Loading...");
+            }
+            return loading;
 
 
-        return distances;
+
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void initRecyclerView() {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerv_view_fountain);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(view.getContext(), fontanyPramene.getNames(), fontanyPramene.getImgUrl(), getDistancesToFountains());
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(view.getContext(), fontanyPramene.getNames(), fontanyPramene.getImgUrl(), getDistancesToFountains(),fontanyPramene.getCoordinates());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 

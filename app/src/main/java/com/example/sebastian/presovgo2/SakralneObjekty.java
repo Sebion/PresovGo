@@ -75,7 +75,7 @@ public class SakralneObjekty  {
         pamiatky.add(new Pamiatka(
                 "Farský kostol Kráľovnej pokoja (Sídlisko III)",
                 "http://farskyurad.sk/uploads/thumb_45-afbadf2157.jpg",
-                "8.998492, 21.239862"));
+                "48.998492, 21.239862"));
 
         pamiatky.add(new Pamiatka(
                 "Farský kostol Krista Kráľa (Sekčov)",
