@@ -14,11 +14,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200px"
-        android:layout_height="200px"
+        android:layout_width="300px"
+        android:layout_height="300px"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/ic_presov" />
+        app:srcCompat="@drawable/erb" />
 
     <TextView
         android:layout_width="match_parent"
