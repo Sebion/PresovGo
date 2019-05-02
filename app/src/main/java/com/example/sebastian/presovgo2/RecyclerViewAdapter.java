@@ -27,12 +27,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private static final String TAG = "RecyclerViewAdapter";
     private ArrayList<String> mImageNames = new ArrayList<>();
     private ArrayList <String> mImages = new ArrayList<>();
-   private ArrayList<String> mCoordinates =new ArrayList<>();
+   private ArrayList<Double> mCoordinates =new ArrayList<>();
    private ArrayList<String>mLatLong=new ArrayList<>();
 
     private Context mContext;
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<String>mCoordinates,ArrayList<String>mLatLong) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<String> mImageNames, ArrayList<String> mImages,ArrayList<Double>mCoordinates,ArrayList<String>mLatLong) {
         this.mImageNames = mImageNames;
         this.mImages = mImages;
         this.mContext = mContext;
@@ -59,7 +59,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .into(holder.image) ;
 
         holder.imageName.setText(mImageNames.get(position));
-        holder.coordinates.setText(mCoordinates.get(position));
+        if(mCoordinates.get(position)!=0.0){
+        holder.coordinates.setText("Distance to this church: "+mCoordinates.get(position)+" km.");}
+        else{holder.coordinates.setText("Loading distance...");}
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

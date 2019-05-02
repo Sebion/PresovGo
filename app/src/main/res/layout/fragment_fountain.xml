@@ -7,10 +7,44 @@
     android:background="#D3D3D3">
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/errorImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignTop="@id/recyclerv_view_fountain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/error"
+        android:visibility="invisible" />
+    <TextView
+        android:id="@+id/textViewProgres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Move to change radius"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"
+        />
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        android:thumbTint="@color/colorPrimary"
+        android:layout_below="@+id/textViewProgres"
+        android:paddingBottom="10dp"
+
+
+
+        />
+
+
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerv_view_fountain">
+        android:id="@+id/recyclerv_view_fountain"
+        android:layout_below="@id/seekBar">
 
     </android.support.v7.widget.RecyclerView>
 
